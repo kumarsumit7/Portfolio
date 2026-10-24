@@ -25694,7 +25694,7 @@ Sumit Kumar   `),
                                           r.jsx("input", {
                                             type: "text",
                                             placeholder:
-                                              "e.g. Best Web Developer in Patna, Bihar",
+                                              "e.g. Best Security Analyst in Patna, Bihar",
                                             value: Ie.title,
                                             onChange: (S) =>
                                               lt((k) => ({
@@ -28798,7 +28798,7 @@ Sumit Kumar   `),
           i("/404", { replace: !0 });
           return;
         }
-        document.title = `Web Developer in ${l.name}, Bihar — Sumit Kumar   `;
+        document.title = `Security Analyst in ${l.name}, Bihar — Sumit Kumar   `;
         const d = document.querySelector('meta[name="description"]');
         d && d.setAttribute("content", l.description);
         const h = document.querySelector('meta[name="keywords"]');
@@ -28806,7 +28806,7 @@ Sumit Kumar   `),
           h.setAttribute(
             "content",
             l.keywords.join(", ") +
-              ", Sumit Kumar   , web developer Bihar, website development Bihar",
+              ", Sumit Kumar   , Security Analyst Bihar, website development Bihar",
           );
         const f = document.getElementById("city-schema");
         f && f.remove();
@@ -28817,7 +28817,7 @@ Sumit Kumar   `),
           (x.text = JSON.stringify({
             "@context": "https://schema.org",
             "@type": "ProfessionalService",
-            name: `Sumit Kumar    — Web Developer in ${l.name}`,
+            name: `Sumit Kumar    — Security Analyst in ${l.name}`,
             url: `https://Sumit Kumar  .vercel.app/web-developer-${l.slug}`,
             description: l.description,
             areaServed: {
@@ -28860,7 +28860,7 @@ Sumit Kumar   `),
           document.head.appendChild(x),
           () => {
             document.title =
-              "Sumit Kumar    — Web Developer, Designer & AI Expert";
+              "Sumit Kumar    — Security Analyst, Designer & AI Expert";
           }
         );
       }, [l, i]),
