@@ -22073,7 +22073,7 @@ const rT = [
                   children: [
                     "Designed and developed by ",
                     r.jsxs("a", {
-                      href: "https://sumitkumar.vercel.app/",
+                      href: "https://github.com/kumarsumit7",
                       target: "_blank",
                       rel: "noopener noreferrer",
                       className:
