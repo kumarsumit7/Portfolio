@@ -98,7 +98,7 @@ const f = () => {
               e.jsx("p", {
                 className: "text-gray-400 max-w-xl mx-auto",
                 children:
-                  "Ready to start your next project? Send me a message and let's discuss how we can work together.",
+                  "Have a project or opportunity? Let’s connect and turn your ideas into impactful results in cybersecurity, networking, video editing, and graphic design.",
               }),
             ],
           }),
