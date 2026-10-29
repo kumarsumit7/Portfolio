@@ -40,8 +40,54 @@ const k = [
     ["line", { x1: "21", x2: "16.65", y1: "21", y2: "16.65", key: "13gj7c" }],
     ["line", { x1: "8", x2: "14", y1: "11", y2: "11", key: "durymu" }],
   ],
-  z = o("zoom-out", k),
-  M = ({ isOpen: a, onClose: i }) => {
+  z = o("zoom-out", k);
+// Icon for the Experience card
+const awd = [
+    [
+      "path",
+      {
+        d: "m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526",
+        key: "awdpath",
+      },
+    ],
+    ["circle", { cx: "12", cy: "8", r: "6", key: "awdcircle" }],
+  ],
+  aw = o("award", awd);
+
+// Reusable dashed arrow (same style as the original one)
+const Ar = ({ left }) =>
+  e.jsx("div", {
+    className:
+      "hidden md:flex absolute top-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none items-center justify-center",
+    style: { left },
+    children: e.jsxs("svg", {
+      width: "100",
+      height: "43",
+      viewBox: "0 0 140 60",
+      fill: "none",
+      xmlns: "http://www.w3.org/2000/svg",
+      children: [
+        e.jsx("path", {
+          d: "M15 40 C40 10, 100 10, 120 35",
+          stroke: "rgba(255,255,255,0.5)",
+          strokeWidth: "2.5",
+          strokeDasharray: "8 6",
+          fill: "none",
+          strokeLinecap: "round",
+        }),
+        e.jsx("path", {
+          d: "M120 30 L130 37 L120 44",
+          stroke: "rgba(255,255,255,0.6)",
+          strokeWidth: "2.5",
+          fill: "none",
+          strokeLinecap: "round",
+          strokeLinejoin: "round",
+        }),
+      ],
+    }),
+  });
+
+const M = ({ isOpen: a, onClose: i }) => {
     const [r, l] = d.useState(1);
     d.useEffect(() => {
       if (!a) return;
@@ -212,7 +258,7 @@ const k = [
             "absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-black to-transparent pointer-events-none",
         }),
         e.jsxs("div", {
-          className: "container mx-auto px-6 max-w-4xl relative z-10",
+          className: "container mx-auto px-6 max-w-6xl relative z-10",
           children: [
             e.jsxs(s.div, {
               initial: { opacity: 0, y: 20 },
@@ -239,38 +285,13 @@ const k = [
             e.jsxs("div", {
               className: "relative",
               children: [
-                e.jsx("div", {
-                  className:
-                    "hidden md:flex absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 pointer-events-none items-center justify-center",
-                  children: e.jsxs("svg", {
-                    width: "140",
-                    height: "60",
-                    viewBox: "0 0 140 60",
-                    fill: "none",
-                    xmlns: "http://www.w3.org/2000/svg",
-                    children: [
-                      e.jsx("path", {
-                        d: "M15 40 C40 10, 100 10, 120 35",
-                        stroke: "rgba(255,255,255,0.5)",
-                        strokeWidth: "2.5",
-                        strokeDasharray: "8 6",
-                        fill: "none",
-                        strokeLinecap: "round",
-                      }),
-                      e.jsx("path", {
-                        d: "M120 30 L130 37 L120 44",
-                        stroke: "rgba(255,255,255,0.6)",
-                        strokeWidth: "2.5",
-                        fill: "none",
-                        strokeLinecap: "round",
-                        strokeLinejoin: "round",
-                      }),
-                    ],
-                  }),
-                }),
+                // Two arrows (card1 -> card2, card2 -> card3)
+                e.jsx(Ar, { left: "33.333%" }),
+                e.jsx(Ar, { left: "66.666%" }),
                 e.jsxs("div", {
-                  className: "grid md:grid-cols-2 gap-12 md:gap-20 mb-12",
+                  className: "grid md:grid-cols-3 gap-12 md:gap-16 mb-12",
                   children: [
+                    // ---------- CARD 1: EDUCATION ----------
                     e.jsxs(s.div, {
                       initial: { opacity: 0, x: -20 },
                       whileInView: { opacity: 1, x: 0 },
@@ -338,6 +359,75 @@ const k = [
                         }),
                       ],
                     }),
+                    // ---------- CARD 2: EXPERIENCE ----------
+                    e.jsxs(s.div, {
+                      initial: { opacity: 0, y: 20 },
+                      whileInView: { opacity: 1, y: 0 },
+                      viewport: { once: !0 },
+                      whileHover: {
+                        scale: 1.02,
+                        boxShadow: "0 25px 50px -12px rgba(220, 38, 38, 0.25)",
+                      },
+                      transition: { duration: 0.3, delay: 0.1 },
+                      className:
+                        "relative p-6 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-xl shadow-xl overflow-hidden group cursor-pointer",
+                      children: [
+                        e.jsx("div", {
+                          className:
+                            "absolute inset-0 bg-gradient-to-br from-white/[0.08] via-transparent to-transparent pointer-events-none",
+                        }),
+                        e.jsx("div", {
+                          className:
+                            "absolute inset-0 rounded-2xl border border-primary/0 group-hover:border-primary/30 transition-all duration-500 pointer-events-none",
+                        }),
+                        e.jsx("div", {
+                          className:
+                            "absolute top-0 left-6 right-6 h-[1px] bg-gradient-to-r from-transparent via-primary/50 to-transparent",
+                        }),
+                        e.jsxs("div", {
+                          className: "relative z-10",
+                          children: [
+                            e.jsxs("div", {
+                              className: "flex items-center mb-4",
+                              children: [
+                                e.jsx("div", {
+                                  className:
+                                    "w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center mr-3 group-hover:bg-primary/20 transition-colors duration-300",
+                                  children: e.jsx(aw, {
+                                    className: "text-primary",
+                                    size: 20,
+                                  }),
+                                }),
+                                e.jsx("h3", {
+                                  className: "text-xl font-bold text-white",
+                                  children: "Experience",
+                                }),
+                              ],
+                            }),
+                            e.jsxs("div", {
+                              className: "mb-4",
+                              children: [
+                                e.jsx("h4", {
+                                  className: "text-white font-medium",
+                                  children: "Multimedia Designer",
+                                }),
+                                e.jsx("span", {
+                                  className:
+                                    "text-primary text-sm font-semibold mb-2 block",
+                                  children: "Jun 2025 – Jan 2026",
+                                }),
+                              ],
+                            }),
+                            e.jsx("p", {
+                              className: "text-gray-400 text-sm",
+                              children:
+                                "Created engaging videos, YouTube thumbnails, social media graphics, and promotional designs. Managed digital content scheduling while maintaining brand consistency and visual quality using Adobe Premiere Pro, Photoshop, and Canva.",
+                            }),
+                          ],
+                        }),
+                      ],
+                    }),
+                    // ---------- CARD 3: TRAINING ----------
                     e.jsxs(s.div, {
                       initial: { opacity: 0, x: 20 },
                       whileInView: { opacity: 1, x: 0 },
